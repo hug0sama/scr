@@ -14,7 +14,7 @@ end = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
 yest = datetime.today() - timedelta(1)
 start = f"{yest.strftime('%Y-%m-%d')}T16:00:00.000Z"
 
-when = st.text_input("pm or today or tmr:")
+when = st.text_input("am or pm:")
 if when == "pm":
 	pattern2 = r'\b\d{1,2}:\d{2} PM\b'
 elif when == "today":
@@ -27,11 +27,62 @@ elif when == "tmr":
 
 else:
 	st.stop()
+# if st.button("Generate") == True:
+# 	for court in courts:
+# 		url = 'https://www.judiciary.gov.sg/hearing-list/GetFilteredList/'
+# 		headers = {
+# 		"Content-Type":"application/json; chaset=utf-8",
+# 		"Accept":"*/*",
+# 		"X-Requested-With":"XMLHttpRequest"
+# 		}
+# 		body = {
+# 		"SearchKeywords":court,
+# 		"SelectedStartDate":start,
+# 		"SelectedEndDate":end,
+# 		"SelectedPageSize":"100",
+# 		"SelectedSortBy":"0"
+# 		}
+# 		response = requests.post(url, headers=headers, json=body)
+# 		content = response.text
+# 		s = re.sub('\\\\','', content)	
+# 		#pattern0 = r'title="([^"]*)"'
+# 		#title = re.findall(pattern0, s)
+# 		for i in re.findall(pattern2, content):
+# 			size += 1
+# 		#pattern1 = r'SC\. ([^"]*?)'
+# 		#name = re.findall(pattern1, str(title))
+# 		#print(name.count(''))	
+# 		#pattern2 = r'\b\d{1,2}:\d{2} [P]M\b'
+# 		if re.search(pattern2, content) != None:
+# 			time = str(re.search(pattern2, content).group())
+# 		else:
+# 			pass	
+# 		pattern3 = r'Mention'
+# 		pattern4 = r'Trial|Part-Heard'
+# 		if re.search(pattern3, s) != None:
+# 			if re.search(pattern4, s) != None:
+# 				hearing = "MH"
+# 			else:
+# 				hearing = "M"
+# 		elif re.search(pattern4, s) != None:
+# 			hearing = "H"
+# 		else:
+# 			pass
+# 		if re.search(pattern2, content) != None:
+# 			st.write(court,'-',size,'-',time,'-',hearing)		
+# 			count += 1
+# 			size = 0
+# 		else:
+# 			pass
+# 		if killswitch == 40:
+# 			break
+# 		else:
+# 			killswitch += 1
+# 	st.write(count)
 
-
-st.button("Reset", type="primary")
+st.button("Clear", type="primary")
 if st.button("Generate"):
-    	for court in courts:
+	for court in courts:
 		url = 'https://www.judiciary.gov.sg/hearing-list/GetFilteredList/'
 		headers = {
 		"Content-Type":"application/json; chaset=utf-8",
@@ -48,27 +99,17 @@ if st.button("Generate"):
 
 		response = requests.post(url, headers=headers, json=body)
 		
-
-
 		content = response.text
 		s = re.sub('\\\\','', content)
 		
-		#pattern0 = r'title="([^"]*)"'
-		#title = re.findall(pattern0, s)
 		for i in re.findall(pattern2, content):
 			size += 1
-		#pattern1 = r'SC\. ([^"]*?)'
-		#name = re.findall(pattern1, str(title))
-		#print(name.count(''))
 
-		
-		#pattern2 = r'\b\d{1,2}:\d{2} [P]M\b'
 		if re.search(pattern2, content) != None:
 			time = str(re.search(pattern2, content).group())
 		else:
 			pass
 
-		
 		pattern3 = r'Mention'
 		pattern4 = r'Trial|Part-Heard'
 		if re.search(pattern3, s) != None:
@@ -80,8 +121,6 @@ if st.button("Generate"):
 			hearing = "H"
 		else:
 			pass
-
-
 
 		if re.search(pattern2, content) != None:
 			st.write(court,'-',size,'-',time,'-',hearing)
@@ -97,5 +136,6 @@ if st.button("Generate"):
 			killswitch += 1
 
 	st.write(count)
+    
 else:
     st.empty()
