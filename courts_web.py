@@ -28,7 +28,11 @@ elif when == "tmr":
 else:
 	st.stop()
 
-
+col1, col2 = col3 = st.columns([1,1])
+with col1:
+    st.button("Generate")
+with col2:
+    st.button("Clear")
 
 if st.button("Generate") == True:
 	for court in courts:
