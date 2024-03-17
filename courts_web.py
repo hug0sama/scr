@@ -14,7 +14,7 @@ end = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
 yest = datetime.today() - timedelta(1)
 start = f"{yest.strftime('%Y-%m-%d')}T16:00:00.000Z"
 
-when = st.text_input("am or pm:")
+when = st.text_input("pm or today or tmr:")
 if when == "pm":
 	pattern2 = r'\b\d{1,2}:\d{2} PM\b'
 elif when == "today":
