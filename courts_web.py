@@ -28,14 +28,10 @@ elif when == "tmr":
 else:
 	st.stop()
 
-col1, col2 = st.columns([1,1])
-with col1:
-    st.button("Generate")
-with col2:
-    st.button("Clear")
 
-if st.button("Generate") == True:
-	for court in courts:
+st.button("Reset", type="primary")
+if st.button('Generate'):
+    	for court in courts:
 		url = 'https://www.judiciary.gov.sg/hearing-list/GetFilteredList/'
 		headers = {
 		"Content-Type":"application/json; chaset=utf-8",
@@ -101,6 +97,6 @@ if st.button("Generate") == True:
 			killswitch += 1
 
 	st.write(count)
+else:
+    st.empty()
 	
-if st.button("Clear") == True:
-	st.empty()
