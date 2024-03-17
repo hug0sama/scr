@@ -30,7 +30,7 @@ else:
 
 
 st.button("Reset", type="primary")
-if st.button('Generate'):
+if st.button("Generate"):
     	for court in courts:
 		url = 'https://www.judiciary.gov.sg/hearing-list/GetFilteredList/'
 		headers = {
