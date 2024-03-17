@@ -99,4 +99,3 @@ if st.button("Generate"):
 	st.write(count)
 else:
     st.empty()
-	
