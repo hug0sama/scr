@@ -97,3 +97,6 @@ if st.button("Generate") == True:
 			killswitch += 1
 
 	st.write(count)
+	
+if st.button("Clear") == True:
+	st.empty()
