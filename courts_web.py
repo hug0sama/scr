@@ -67,7 +67,7 @@ if st.button("Generate"):
 		hearings = re.findall(pattern4, content)
 
 
-		if re.search(pattern2, content) != None:
+		if size != 0:
 			for i in range(size):
 				temp = time[i] + " " + hearings[i]
 				result.append(temp)
