@@ -71,7 +71,7 @@ if st.button("Generate"):
 			for i in range(size):
 				temp = times[i] + " " + hearings[i]
 				result.append(temp)
-			st.write(court, result)
+			st.write(court, ", ".join(result))
 			count += 1
 			size = 0
 			times = []
