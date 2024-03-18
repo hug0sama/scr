@@ -78,7 +78,6 @@ if st.button("Generate"):
 			times = []
 			hearings = []
 			result = []
-			sizes = []
 		else:
 			pass
 
