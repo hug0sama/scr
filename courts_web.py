@@ -6,6 +6,9 @@ from datetime import datetime, timedelta
 size = 0
 count = 0
 killswitch = 0
+times = []
+hearings = []
+result = []
 courts = ['8A', '10A', '10B', '10C', '10D','11A','11B','11C','11D','13A','13B','13C','13D','15A','15B','15C','18A','18B','18C','19A','19B','19C','19D','24A','24B','24C','24D','29A','29B','29C','29D','30A','30B','30C','30D','32A','32B','32C','32D']
 
 
@@ -54,27 +57,26 @@ if st.button("Generate"):
 			size += 1
 
 		if re.search(pattern2, content) != None:
-			time = str(re.search(pattern2, content).group())
+			#time = str(re.search(pattern2, content).group())
+			times = str(re.findall(pattern2, content))
 		else:
 			pass
 
-		pattern3 = r'Mention'
-		pattern4 = r'Trial|Part-Heard'
-		if re.search(pattern3, s) != None:
-			if re.search(pattern4, s) != None:
-				hearing = "MH"
-			else:
-				hearing = "M"
-		elif re.search(pattern4, s) != None:
-			hearing = "H"
-		else:
-			pass
+		#pattern3 = r'Mention'
+		pattern4 = r'Mention|Trial|Part-Heard'
+		hearings = re.findall(pattern4, content)
+
 
 		if re.search(pattern2, content) != None:
-			st.write(court,'-',size,'-',time,'-',hearing)
-			
+			for i in size:
+				temp = time[i-1] + " " + hearings[i-1]
+				result.append(temp)
+			st.write(court, ', '.join(result))
 			count += 1
 			size = 0
+			times = []
+			hearings = []
+			result = []
 		else:
 			pass
 
