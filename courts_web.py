@@ -68,8 +68,8 @@ if st.button("Generate"):
 
 
 		if re.search(pattern2, content) != None:
-			for i in range(1,int(size)):
-				temp = time[i-1] + " " + hearings[i-1]
+			for i in range(size):
+				temp = time[i] + " " + hearings[i]
 				result.append(temp)
 			st.write(court, ', '.join(result))
 			count += 1
