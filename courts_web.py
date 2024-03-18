@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 size = 0
 count = 0
 killswitch = 0
+sizes = []
 times = []
 hearings = []
 result = []
@@ -55,6 +56,7 @@ if st.button("Generate"):
 		
 		for i in re.findall(pattern2, content):
 			size += 1
+			sizes.append(size)
 
 		if re.search(pattern2, content) != None:
 			#time = str(re.search(pattern2, content).group())
@@ -68,7 +70,7 @@ if st.button("Generate"):
 
 
 		if size != 0:
-			for i in range(size):
+			for i in sizes:
 				temp = time[i] + " " + hearings[i]
 				result.append(temp)
 			st.write(court, ', '.join(result))
