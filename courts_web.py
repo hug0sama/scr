@@ -24,9 +24,17 @@ elif when == "today":
 	pattern2 = r'\b\d{1,2}:\d{2} [AP]M\b'
 elif when == "tmr":
 	pattern2 = r'\b\d{1,2}:\d{2} AM\b'
-	start = f"{today.strftime('%Y-%m-%d')}T16:00:00.000Z"
-	tmr = datetime.today() + timedelta(1)
-	end = f"{tmr.strftime('%Y-%m-%d')}T15:59:00.000Z"
+	if datetime.today().weekday() == 4:
+		sun = datetime.today() + timedelta(2)
+		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
+		mon = datetime.today() + timedelta(3)
+		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
+	elif datetime.today().weekday() == 5:
+		sun = datetime.today() + timedelta(1)
+		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
+		mon = datetime.today() + timedelta(2)
+		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
+		
 
 else:
 	st.stop()
