@@ -24,9 +24,9 @@ elif datetime.today().weekday() == 5:
 		mon = datetime.today() + timedelta(2)
 		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
 else:
-end = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
-yest = datetime.today() - timedelta(1)
-start = f"{yest.strftime('%Y-%m-%d')}T16:00:00.000Z"
+	end = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
+	yest = datetime.today() - timedelta(1)
+	start = f"{yest.strftime('%Y-%m-%d')}T16:00:00.000Z"
 
 
 when = st.text_input("pm/tmr/today:")
