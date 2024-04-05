@@ -13,12 +13,22 @@ courts = ['8A', '10A', '10B', '10C', '10D','11A','11B','11C','11D','13A','13B','
 
 
 today = datetime.today()
+if datetime.today().weekday() == 4:
+		sun = datetime.today() + timedelta(2)
+		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
+		mon = datetime.today() + timedelta(3)
+		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
+elif datetime.today().weekday() == 5:
+		sun = datetime.today() + timedelta(1)
+		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
+		mon = datetime.today() + timedelta(2)
+		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
+else:
 end = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
 yest = datetime.today() - timedelta(1)
 start = f"{yest.strftime('%Y-%m-%d')}T16:00:00.000Z"
 
-st.write(start)
-st.write(end)
+
 when = st.text_input("pm/tmr/today:")
 if when == "pm":
 	pattern2 = r'\b\d{1,2}:\d{2} PM\b'
@@ -26,18 +36,7 @@ elif when == "today":
 	pattern2 = r'\b\d{1,2}:\d{2} [AP]M\b'
 elif when == "tmr":
 	pattern2 = r'\b\d{1,2}:\d{2} AM\b'
-	if datetime.today().weekday() == 4:
-		sun = datetime.today() + timedelta(2)
-		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
-		mon = datetime.today() + timedelta(3)
-		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
-	elif datetime.today().weekday() == 5:
-		sun = datetime.today() + timedelta(1)
-		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
-		mon = datetime.today() + timedelta(2)
-		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
-		
-
+	
 else:
 	st.stop()
 
