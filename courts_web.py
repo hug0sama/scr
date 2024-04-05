@@ -42,6 +42,8 @@ else:
 
 st.button("Clear", type="primary")
 if st.button("Generate"):
+	st.write(start)
+	st.write(end)
 	for court in courts:
 		url = 'https://www.judiciary.gov.sg/hearing-list/GetFilteredList/'
 		headers = {
