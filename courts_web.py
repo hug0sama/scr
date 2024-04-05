@@ -85,7 +85,7 @@ if st.button("Generate"):
 				result.append(temp)
 			#st.write(court, ",".join(result))
 			st.write(court)
-			for i in result:
+			for i in range(size):
 				st.write(result[i])
 			count += 1
 			size = 0
