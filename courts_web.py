@@ -77,7 +77,6 @@ if st.button("Generate"):
 		if re.search(pattern4, s) != None:
 			hearings = re.findall(pattern4, s)
 		else:
-			pass
 		st.write(hearings)
 		st.write(times)
 
