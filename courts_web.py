@@ -72,10 +72,12 @@ if st.button("Generate"):
 		else:
 			pass
 
-		#pattern3 = r'Mention'
 		pattern4 = r'hearing-type">(.*?)<'
 		#pattern4 = r'For Mention|Trial|Part-Heard|For Hearing|Hearing(Newton)|For Further Mention'
-		hearings = re.findall(pattern4, s)
+		if re.search(pattern4, s) != None:
+			hearings = re.findall(pattern4, s)
+		else:
+			pass
 		st.write(hearings)
 		st.write(times)
 
