@@ -77,6 +77,7 @@ if st.button("Generate"):
 		#pattern4 = r'For Mention|Trial|Part-Heard|For Hearing|Hearing(Newton)|For Further Mention'
 		hearings = re.findall(pattern4, s)
 		st.write(hearings)
+		st.write(times)
 
 
 		if size != 0:
