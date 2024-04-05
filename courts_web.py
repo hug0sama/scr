@@ -63,6 +63,7 @@ if st.button("Generate"):
 		
 		content = response.text
 		s = re.sub('\\\\','', content)
+		st.write(s)
 		
 		for i in re.findall(pattern2, content):
 			size += 1
