@@ -71,7 +71,7 @@ if st.button("Generate"):
 		else:
 			pass
 
-		pattern4 = r'hearing-type"u003e(.*?)u003c'
+		pattern4 = r'hearing-type"u003eCriminal - (.*?)u003c'
 		#pattern4 = r'For Mention|Trial|Part-Heard|For Hearing|Hearing(Newton)|For Further Mention'
 		if re.search(pattern4, s) != None:
 			hearings = re.findall(pattern4, s)
