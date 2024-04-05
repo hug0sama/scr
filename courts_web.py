@@ -62,6 +62,7 @@ if st.button("Generate"):
 		response = requests.post(url, headers=headers, json=body)
 		
 		content = response.text
+		st.write(content)
 		s = re.sub('\\\\','', content)
 		st.write(s)
 		
