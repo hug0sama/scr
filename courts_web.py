@@ -72,7 +72,7 @@ if st.button("Generate"):
 			pass
 
 		#pattern3 = r'Mention'
-		pattern4 = r'Mention|Trial|Part-Heard|For Hearing|Hearing '
+		pattern4 = r'For Mention|Trial|Part-Heard|For Hearing|Hearing(Newton)|For Further Mention'
 		hearings = re.findall(pattern4, content)
 
 
