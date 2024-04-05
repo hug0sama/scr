@@ -42,8 +42,6 @@ else:
 
 st.button("Clear", type="primary")
 if st.button("Generate"):
-	st.write(start)
-	st.write(end)
 	for court in courts:
 		url = 'https://www.judiciary.gov.sg/hearing-list/GetFilteredList/'
 		headers = {
@@ -62,7 +60,6 @@ if st.button("Generate"):
 		response = requests.post(url, headers=headers, json=body)
 		
 		content = response.text
-		st.write(content)
 		s = re.sub('\\\\','', content)
 		st.write(s)
 		
@@ -79,6 +76,7 @@ if st.button("Generate"):
 		pattern4 = r'hearing-type">(.*?)<'
 		#pattern4 = r'For Mention|Trial|Part-Heard|For Hearing|Hearing(Newton)|For Further Mention'
 		hearings = re.findall(pattern4, s)
+		st.write(hearings)
 
 
 		if size != 0:
