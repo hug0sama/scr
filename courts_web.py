@@ -37,6 +37,10 @@ elif when == "tmr":
 		start = f"{sun.strftime('%Y-%m-%d')}T16:00:00.000Z"
 		mon = datetime.today() + timedelta(2)
 		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
+		else:
+		end = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
+		yest = datetime.today() - timedelta(1)
+		start = f"{yest.strftime('%Y-%m-%d')}T16:00:00.000Z"
 	
 else:
 	st.stop()
