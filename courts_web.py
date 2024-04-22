@@ -38,9 +38,9 @@ elif when == "tmr":
 		mon = datetime.today() + timedelta(2)
 		end = f"{mon.strftime('%Y-%m-%d')}T15:59:00.000Z"
 	else:
-		start = f"{today.strftime('%Y-%m-%d')}T15:59:00.000Z"
+		start = f"{today.strftime('%Y-%m-%d')}T16:00:00.000Z"
 		tmr = datetime.today() + timedelta(1)
-		end = f"{tmr.strftime('%Y-%m-%d')}T16:00:00.000Z"
+		end = f"{tmr.strftime('%Y-%m-%d')}T15:59:00.000Z"
 	
 else:
 	st.stop()
